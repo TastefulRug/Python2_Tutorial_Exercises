@@ -1,0 +1,144 @@
+print
+		Returns some text to the console. Accepts strings and integers.
+" "
+		Double quotes are used to make the enclosed text a string.
+' '
+		Single quotes can be used instead of double quotes.
+#
+		Hash symbol starts a comment line.
+'''comment text'''
+"""comment text"""
+		Three quotes in a row starts and ends a comment block.
+		Can span multiple lines.
+r'''
+		Raw triple quotes.
+u'''
+		Unicode triple quotes.
++
+		Plus sign can add two numbers.
+		Can add two strings together with no space between them.
+-
+		Minus sign subtracts one number from another.
+		Minus sign can also make a number negative.
+/
+		Forward slash divides one number from another.
+		Forward slash can also separate folder names in a path.
+*
+		Asterisk can multiply two numbers together.
+		It can also act as a wildcard in names or in declaring the number of
+		arguments in a function. *args
+**
+		Exponent
+		a**b =10 to the power 20
+%
+		Percent sign performs a modulo opperation on two numbers.
+		i.e. 75 % 4 = 3 is 75 divided by 4 with remainder 3
+		It is also used for format string variables in Python 2.
+		i.e. >print "this %s and %s" % (thing, stuff)
+%s
+		Format symbol for string conversion.
+%d
+		Format symbol for decimal conversion.
+%r
+		Raw format symbol. Reproduces things exactly.
+<
+		Test if the left side is less than the right side.
+>
+		Test if the left side is greater than the right side.
+<=
+		Test if the left side is less than or equal to the right side.
+>=
+		Test if the left side is greater than or equal to the right side.
+=
+		Assigns a value or string to a variable.
+==
+		Tests if something is equal to another thing.
+!= OR <>
+		Test if two values are not equal.
++=
+		Add AND: increase the variable by the amount on the right.
+		a += 2 is a = a + 2
+-=
+		Subtract AND
+		c -= a is equivalent to c = c - a
+*=
+		Multiply AND
+		c *= a is equivalent to c = c * a
+/=
+		Divide AND
+		c /= a is equivalent to c = c / a
+**=
+		Exponent AND
+		c **= a is equivalent to c = c ** a
+4.0
+		Numbers with decimals are floating point numbers.
+		The results of operations they're involved in are not rounded.
+,
+		Commas are used to separate items in a list or append strings to each other.
+		Joining strings with a comma separates them with a space.
+;
+		Semicolons will end a line of code.
+\
+		Backslash: used to escape special characters or to separate folder names in
+		a path.
+\n
+		Newline character.
+raw_input(prompt)
+		Asks the user for input. Displays whatever is in the brackets as a prompt.
+		Returns whatever they entered.
+int()
+		Converts whatever is in the brackets to an integer.
+from X import Y
+		Imports feature Y from a Python library/module X.
+argv
+		Argument variable: a list containing the script's name and any arguments
+		passed when running the script.
+open(file_name, access_mode)
+		Opens the named file in the desired access mode. Modes:
+'r'
+		Read only mode. File pointer at begining of file.
+		This is the default mode.
+'r+'
+		Open file in read and write mode. File pointer at begining of file.
+'w'
+		Open file as write only. Overwrites the entire file if it already exists.
+		If it doesn't exist, a new file is made.
+'w+'
+		Open file for both writing and reading. Entire file is overwritten if it exists.
+'a'
+		Opens a file for appending. The file pointer is at the end of the file.
+'a+'
+		Opens file for both appending and reading. The file pointer is at the end
+		of the file.
+file_object.close()
+		Closes the file object after flushing any unwritten information.
+file_object.write(string)
+		Writes a string to the open file. The write() method does not add a newline
+		after each string.
+file_object.read([count])
+		Reads a string from an open file. Passed parameter is the number of bytes to read.
+file_object.truncate()
+		Empties the file completely.
+file_object.readline()
+		Reads one line of a text file.
+file_object.seek(x)
+		Sets file pointer x number of bytes into the file.
+exists(to_file)
+		Returns True if the file exists.
+		from os.path import exists
+len(string)
+		Returns the length of the string.
+:
+		Colon declares the start of an indented block of code.
+		For example: if statements and function definitions.
+		
+		Also the delimiter of slice syntax.
+		[start:end]
+		[1:5] is equivalent to "from 1 to 5" (5 not included)
+def function_name( parameters ):
+	'''function_docstring'''
+	function_suite
+	return [expression]
+		Defines a function with the name and parameters given. Executes whatever
+		code is in the function_suite when called and returns whatever the
+		return expression evaluates to.
