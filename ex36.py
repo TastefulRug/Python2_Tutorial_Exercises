@@ -4,7 +4,7 @@ from time import sleep
 def q_print(text):
 	for i in text:
 		print(i, end='')
-		sleep(0.02)
+		sleep(0.01)
 	print("")
 
 def room_start(map_vars = {'locked': True, 'spin': 0, 'buttons': [0, 0, 0]}):
@@ -62,8 +62,9 @@ def room_start(map_vars = {'locked': True, 'spin': 0, 'buttons': [0, 0, 0]}):
 
 		
 def room_goal(map_vars):
-		
-	raw_input()
+	q_print("You see daylight pouring through an exit. You can finally leave this place.")
+	raw_input("\nThe End")
+	exit(0)
 	room_spins(map_vars)
 	
 def room_spins(map_vars):
@@ -191,22 +192,128 @@ def spin_funct(map_vars):
 			
 	
 def room_east(map_vars):
-	map_vars['buttons'][0] = press(map_vars['buttons'][0])
+	# east room is button 0
+	q_print("You are in a low vaulted room, little more than an alcove. \nBefore you is a detailed carving of the phases of the moon, surrounding what looks like a button.")
+	q_print("The only exit is west, back the way you came.")
 	
 	raw_input()
-	room_south(map_vars)
+	
+	q_print("What will you do?")
+	q_print("1. Go west")
+	q_print("2. Press the button")
+	
+	choice = str(raw_input("> "))
+	
+	if "1" in choice or "west" in choice or "West" in choice or choice == "w" or choice == "W":
+		q_print("You head west...")
+		raw_input()
+		room_spins(map_vars)
+	
+	elif "2" in choice or "button" in choice or "Button" in choice or "press" in choice or "Press" in choice:
+		if map_vars['buttons'][0] == 0:
+			q_print("The button pops down with a soft click.")
+		else:
+			q_print("The button pops up with a soft click.")
+		
+		map_vars['buttons'][0] = press(map_vars['buttons'][0])					# Toggle the button state
+		if map_vars['buttons'] != [1, 1, 1] and map_vars['locked'] == False:	# Check if the door should be locked
+			map_vars['locked'] = True
+			q_print("You hear a loud rumbling, off in the distance.")
+			
+		if map_vars['buttons'] == [1, 1, 1]:					# Check if the door should be unlocked
+			map_vars['locked'] = False
+			q_print("You hear a loud rumbling, off in the distance.")
+			
+		raw_input()
+		room_east(map_vars)
+	
+	else:
+		q_print("Nothing happens...")
+		raw_input()
+		room_east(map_vars)
+
 	
 def room_south(map_vars):
-	map_vars['buttons'][1] = press(map_vars['buttons'][1])
+	# south room is button 1
+	q_print("You are in a low vaulted room, little more than an alcove. \nBefore you is a detailed carving of the phases of the moon, surrounding what looks like a button.")
+	q_print("The only exit is north, back the way you came.")
 	
 	raw_input()
-	room_west(map_vars)
+	
+	q_print("What will you do?")
+	q_print("1. Go north")
+	q_print("2. Press the button")
+	
+	choice = str(raw_input("> "))
+	
+	if "1" in choice or "north" in choice or "North" in choice or choice == "n" or choice == "N":
+		q_print("You head north...")
+		raw_input()
+		room_spins(map_vars)
+	
+	elif "2" in choice or "button" in choice or "Button" in choice or "press" in choice or "Press" in choice:
+		if map_vars['buttons'][1] == 0:
+			q_print("The button pops down with a soft click.")
+		else:
+			q_print("The button pops up with a soft click.")
+		
+		map_vars['buttons'][1] = press(map_vars['buttons'][1])					# Toggle the button state
+		if map_vars['buttons'] != [1, 1, 1] and map_vars['locked'] == False:	# Check if the door should be locked
+			map_vars['locked'] = True
+			q_print("You hear a loud rumbling, off in the distance.")
+			
+		if map_vars['buttons'] == [1, 1, 1]:					# Check if the door should be unlocked
+			map_vars['locked'] = False
+			q_print("You hear a loud rumbling, off in the distance.")
+			
+		raw_input()
+		room_south(map_vars)
+	
+	else:
+		q_print("Nothing happens...")
+		raw_input()
+		room_south(map_vars)
 	
 def room_west(map_vars):
-	map_vars['buttons'][2] = press(map_vars['buttons'][2])
+	# west room is button 2
+	q_print("You are in a low vaulted room, little more than an alcove. \nBefore you is a detailed carving of the phases of the moon, surrounding what looks like a button.")
+	q_print("The only exit is east, back the way you came.")
 	
 	raw_input()
-	room_start(map_vars)
+	
+	q_print("What will you do?")
+	q_print("1. Go east")
+	q_print("2. Press the button")
+	
+	choice = str(raw_input("> "))
+	
+	if "1" in choice or "east" in choice or "East" in choice or choice == "e" or choice == "E":
+		q_print("You head east...")
+		raw_input()
+		room_spins(map_vars)
+	
+	elif "2" in choice or "button" in choice or "Button" in choice or "press" in choice or "Press" in choice:
+		if map_vars['buttons'][2] == 0:
+			q_print("The button pops down with a soft click.")
+		else:
+			q_print("The button pops up with a soft click.")
+		
+		map_vars['buttons'][2] = press(map_vars['buttons'][2])					# Toggle the button state
+		if map_vars['buttons'] != [1, 1, 1] and map_vars['locked'] == False:	# Check if the door should be locked
+			map_vars['locked'] = True
+			q_print("You hear a loud rumbling, off in the distance.")
+			
+		if map_vars['buttons'] == [1, 1, 1]:					# Check if the door should be unlocked
+			map_vars['locked'] = False
+			q_print("You hear a loud rumbling, off in the distance.")
+			
+		raw_input()
+		room_west(map_vars)
+	
+	else:
+		q_print("Nothing happens...")
+		raw_input()
+		room_west(map_vars)
 	
 def map(location):
 	return
